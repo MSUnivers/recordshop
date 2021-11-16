@@ -1,0 +1,12 @@
+{
+  "records": [
+    {
+      "title": "Pop",
+      "artist": "Madonna",
+      "year": 1990,
+      "iamge": "path to my image",
+      "price": 15,
+      "id": "1636966511849"
+    }
+  ]
+}
