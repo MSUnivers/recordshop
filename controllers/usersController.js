@@ -13,6 +13,12 @@ exports.addUser = (req, res, next) => {
 
   res.status(200).send('the user is valid and has been registered');
 };
+exports.sanitizerController=(req,res, next) => {
+
+  res.send(req.body)
+}
+
+
 
 /* exports.validateController=(req,res, next) =>{
 res.json({msg:'We can not validate your user. The lastName is required'})
