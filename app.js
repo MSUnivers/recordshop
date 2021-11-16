@@ -6,12 +6,7 @@ const logger = require("morgan");
 const low = require("lowdb");
 const cors = require("cors")
 const FileSync = require("lowdb/adapters/FileSync");
-const enableCors = require("./middelwares/middelware")
-
-/** ROUTERS */
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
-const recordsRouter = require("./routes/records");
+const {enableCors } = require("./middelwares/middelware");
 
 /** INIT */
 const app = express();
@@ -22,8 +17,12 @@ app.use(logger("dev"));
 /** SETTING UP LOWDB */
 const adapter = new FileSync("data/db.json");
 const db = low(adapter);
-db.defaults({ records: [] }).write();
+db.defaults({ records: [],users:[] }).write();
 
+/** ROUTERS */
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
+const recordsRouter = require("./routes/records");
 /** REQUEST PARSERS */
 app.use(enableCors)
 app.use(express.json());
